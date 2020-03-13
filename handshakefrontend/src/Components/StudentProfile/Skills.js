@@ -60,7 +60,7 @@ class Skills extends Component {
         })
         .catch(error =>{
             this.setState({
-                errorMsg :"Error occured"
+                errorMsg : error.msg
             });
         });
 
@@ -68,7 +68,7 @@ class Skills extends Component {
 
     setSkills = (e) => {
 
-       // e.preventDefault();
+        e.preventDefault();
 
        console.log("For setting skills",this.state.allSkills.join());
        axios.defaults.withCredentials = true;
@@ -92,6 +92,7 @@ class Skills extends Component {
             })
             console.log("Error has occured");
         });
+        this.onClickHandler();
     }
 
     componentWillMount() {

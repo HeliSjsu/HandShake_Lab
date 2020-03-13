@@ -43,7 +43,7 @@ class Education extends Component {
 
         console.log('Edit education');
 
-        //event.preventDefault();
+        event.preventDefault();
 
         const data = {
             id: this.props.edu.id,
@@ -72,7 +72,7 @@ class Education extends Component {
                 })
             }
         });
-
+        this.onClickHandler
     }
 
     deleteEducation = (e) =>{

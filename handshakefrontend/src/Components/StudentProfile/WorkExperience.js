@@ -42,7 +42,7 @@ class WorkExperience extends Component {
 
         console.log('Edit Work');
 
-        //event.preventDefault();
+        event.preventDefault();
 
         const data = {
             id: this.state.id,
@@ -73,6 +73,7 @@ class WorkExperience extends Component {
             }
         });
 
+        this.onClickHandler();
     }
 
     deleteWorkExp = (event) =>{

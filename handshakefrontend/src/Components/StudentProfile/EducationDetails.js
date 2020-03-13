@@ -59,7 +59,7 @@ class EducationDetails extends Component {
 
 
     submitEducationDetails = (e) => {
-      //  e.preventDefault();
+        e.preventDefault();
 
         const data = {
             user_type: 1,
@@ -89,6 +89,8 @@ class EducationDetails extends Component {
                     })
                 }
             });
+
+            this.onClickHandler();
 
     }
 

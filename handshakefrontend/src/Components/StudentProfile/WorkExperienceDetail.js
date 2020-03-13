@@ -60,7 +60,8 @@ class WorkExperienceDetail extends Component {
 
 
     submitWorkExpDetails = (e) => {
-      //  e.preventDefault();
+        e.preventDefault();
+
         
         const data = {
             user_type: 1,
@@ -89,7 +90,13 @@ class WorkExperienceDetail extends Component {
                         authFlag: false
                     })
                 }
+            }).catch(error=>{
+                this.setstate({
+                    errorMsg : error.msg
+                })
             });
+
+            this.onClickHandler();
 
     }
 
@@ -108,9 +115,6 @@ class WorkExperienceDetail extends Component {
                 this.setState({
                     workList: this.state.workList.concat(response.data)
                 });
-
-
-
             });
        
     }
@@ -143,7 +147,7 @@ class WorkExperienceDetail extends Component {
     }
 
 
-        if (this.state.errorMsg) {
+        if (this.state.errorMsg !== "") {
             msg = <div class="alert alert-danger" role="alert">{this.state.errorMsg}</div>;
         }
         if (!this.state.editFlag) {
