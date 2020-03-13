@@ -22,7 +22,9 @@ class SignUp extends Component {
             major: "",
             schoolsmentic: [
                 { key: "af", value: "San Jose", text: "San Jose" },
-                { key: "ax", value: "Cornel", text: "Cornell" }
+                { key: "ax", value: "Cornel", text: "Cornell" },
+                { key: "az" , value : "University of Hogwarts" , text : "University of Hogwarts"},
+                { key: "an" , value : "Stanford University" , text : "Stanford University"},
             ],
             errorMsg: "",
             authFlag: false

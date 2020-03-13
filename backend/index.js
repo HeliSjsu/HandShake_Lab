@@ -7,7 +7,7 @@ var cookieParser = require('cookie-parser');
 var cors = require('cors');
 var path=require('path');
 const config = require('./config');
-const config = require('./serverConfig');
+const serverconfig = require('./serverConfig');
 const mysql = require('mysql2');
 const bcrypt = require('bcrypt');
 app.set('view engine', 'ejs');
