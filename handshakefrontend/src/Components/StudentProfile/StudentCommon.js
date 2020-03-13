@@ -47,6 +47,7 @@ class StudentCommon extends Component {
 
     updateJobStatus = (e) => {
 
+        e.preventDefault();
         const data = {
             status_id: this.state.status_id,
             status: this.props.student.status
