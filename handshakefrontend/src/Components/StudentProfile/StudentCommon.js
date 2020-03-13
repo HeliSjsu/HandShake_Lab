@@ -50,14 +50,14 @@ class StudentCommon extends Component {
         e.preventDefault();
         const data = {
             status_id: this.state.status_id,
-            status: this.props.student.status
+            status: this.state.status
         }
         console.log(data.status_id + "Request" + data.status)
         axios.post(backendconfig + '/job/updatestudentStatus', data)
             .then((response) => {
-
-                console.log('Updated Status data', data);
-
+                console.log('Updated Status data', response.data);
+            }).catch(error=>{
+                console.log(error.msg);
             });
 
     }
