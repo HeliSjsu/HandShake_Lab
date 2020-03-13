@@ -48,7 +48,7 @@ class EventsRegisteredByStudents extends Component {
         <div>
             {
                 this.state.registeredEvents.map( item => {
-                    return <EventDetails details={item} userId={this.state.userId} userType={this.state.userType} ></EventDetails>
+                    return <div><EventDetails details={item} userId={this.state.userId} userType={this.state.userType} ></EventDetails><br/><br/></div>
                  })
             }
         </div>;

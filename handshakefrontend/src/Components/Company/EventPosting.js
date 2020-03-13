@@ -16,9 +16,8 @@ class EventPosting extends Component {
             etime : "",
             edate: "" ,
             loc : "",
-            eli : "",
+            eli : "All",
             errorMsg: "",
-            user_id : new Cookies().get("company_user_id"),
             authFlag: false,
         }
         this.createNewEvent = this.createNewEvent.bind(this);
@@ -50,6 +49,7 @@ class EventPosting extends Component {
     createNewEvent = (e) => {
         console.log("Inside create Event");
 
+        e.preventDefault();
         const data = {
             name : this.state.name,
             desc: this.state.desc,
@@ -57,7 +57,7 @@ class EventPosting extends Component {
             edate : this.state.edate,
             loc : this.state.loc,
             eligibility : this.state.eli,
-            userId :this.state.user_id
+            userId : new Cookies().get("company_user_id")
         }
 
         axios.post(backendconfig+'/event/createNewEvent',data)
@@ -81,7 +81,7 @@ class EventPosting extends Component {
         let redirectVar = null;
 
         if(this.state.authFlag) {
-            redirectVar = <div class="alert alert-success"> Event Added Successfully</div>//<Redirect to='/company/eventlisting'></Redirect>
+            redirectVar = <Redirect to='/company/eventlisting'></Redirect>
         }
                          
         return (
@@ -99,9 +99,9 @@ class EventPosting extends Component {
                     <label>Eligibility</label>
                     <select name="eli" value={this.state.eli} onChange={this.inputChangeHandler} > 
                     <option value="All">All</option>
-                    <option value="SE">Software Engineer</option>
-                    <option value="Arts">Arts and Design</option>
-                    <option value="Med">Electrical Engineering</option>
+                    <option value="Software Engineer">Software Engineer</option>
+                    <option value="Arts and Design">Arts and Design</option>
+                    <option value="Electrical Engineering">Electrical Engineering</option>
                     </select>
                 </div>
                 <div class="form-group">

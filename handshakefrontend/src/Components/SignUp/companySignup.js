@@ -42,7 +42,7 @@ class SignUp extends Component{
  
     //submit Login handler to send a request to the node backend
     submitSignUp = (e) => {
-        var headers = new Headers();
+       // var headers = new Headers();
         if(this.state.pwd !== this.state.cpwd) {
             this.setState({
                 errorMsg : "Password does not match"

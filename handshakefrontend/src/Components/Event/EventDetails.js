@@ -1,9 +1,10 @@
 
 import React, { Component } from 'react';
 import '../../App.css';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import axios from 'axios';
 import backendconfig from '../../backendConfig';
+import Cookies from 'universal-cookie';
 
 //Define a StudentProfile Component
 class EventDetails extends Component {
@@ -32,17 +33,19 @@ class EventDetails extends Component {
    registerForEvent = (e) =>{
 
     console.log("Inside event" + this.props.details.id + this.state.userId + this.props.details.eligibility);
+    
+    e.preventDefault();
+
     const data = {
         eid : this.props.details.id,
-        userId : this.state.userId,
+        userId : new Cookies().get("student_user_id"),
         eligibility : this.props.details.eligibility
     } 
 
     axios.post(backendconfig+'/event/rsvpevent',data)
     .then(response => {
-        if(response.status === 200) {
+        if(response.status === 200 && (response.data.msg.includes("Successful"))) {
             this.setState({
-                errorMsg : response.data.msg,
                 authFlag : true,
                 status : 1
             })
@@ -56,8 +59,11 @@ class EventDetails extends Component {
    }
     
    render() {
-         let displayField , userSpecificDisplay;
+         let displayField , userSpecificDisplay, redirectVar;
          let msg;
+         if(this.state.authFlag){
+            redirectVar =<Redirect to='/student/registeredEvents'></Redirect>
+         }
          if(this.state.errorMsg !== '') {
             msg = <div class="alert alert-danger" role="alert">{this.state.errorMsg}</div>; 
          }
@@ -101,6 +107,7 @@ class EventDetails extends Component {
 
         return (
             <div class="container" style={{border:"1px solid white",boxShadow: '5px 5px 10px rgba(0,0,0,0.5)'}}>
+                {redirectVar}
                 <li>
              <div class="h4">
               <span> {this.props.details.e_name}</span>

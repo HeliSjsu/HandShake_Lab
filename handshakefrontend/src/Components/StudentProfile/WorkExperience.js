@@ -102,7 +102,7 @@ class WorkExperience extends Component {
     }
 
     onClickHandler = (e) =>{
-       if(this.state.editFlag == true) {
+       if(this.state.editFlag === true) {
         
         this.setState({
             editFlag : false
@@ -132,8 +132,7 @@ class WorkExperience extends Component {
     render() {
         //redirect based on successful login
         let msg;
-        let editFlag ,fiedlValues;
-        let originalValues , editedValues ,display;
+        let  fiedlValues;
         console.log("userType is" , this.props.userType);
         if(this.props.userType === '2'){
             fiedlValues = 

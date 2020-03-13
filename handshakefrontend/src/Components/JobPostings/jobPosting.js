@@ -49,6 +49,7 @@ class JobPosting extends Component {
     createNewJob = (e) => {
         console.log(this.state.job_type);
 
+        e.preventDefault();
         const data = {
             title : this.state.title,
             desc: this.state.desc,
@@ -56,7 +57,7 @@ class JobPosting extends Component {
             loc : this.state.loc,
             job_type : this.state.job_type,
             deadline : this.state.deadline,
-            user_id : this.state.id
+            user_id : new Cookies().get("company_user_id")
         }
 
         axios.post(backendconfig+'/job/jobPosting',data)

@@ -73,15 +73,6 @@ class CompanyBasicDetail extends Component {
         data.set("name", this.state.name);
         data.set("loc" , this.state.loc);
 
-        // const data = {
-        //     user_type : 1,
-        //     id: this.state.id,
-        //     name : this.state.name ,
-        //     loc : this.state.loc,
-        //     profile : this.state.profile
-        // }
-
-
         axios.defaults.withCredentials = true;
         //make a post request with the user data
         console.log(data);
@@ -124,7 +115,7 @@ class CompanyBasicDetail extends Component {
     render() {
         //redirect based on successful login
         let msg;
-        let editFlag ,fiedlValues, userSpecificdisplay;
+        let fiedlValues, userSpecificdisplay;
         userSpecificdisplay ='';
         console.log(this.state.userType , typeof this.state.userType);
         if(this.state.userType === "2") {

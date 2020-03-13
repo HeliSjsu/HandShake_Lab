@@ -39,38 +39,38 @@ class BasicDetails extends Component {
     onChangeFileHandler = (event) => {
         this.setState({
             selectedFile: event.target.files[0]
-        },()=>{
+        }, () => {
             this.uploadProfile();
         })
     }
 
-    uploadProfile = () =>{
+    uploadProfile = () => {
         console.log(this.state.selectedFile);
         const data = new FormData();
 
         data.append("file", this.state.selectedFile, this.state.selectedFile.name);
-        data.set("id",this.state.id)
+        data.set("id", this.state.id)
         axios({
             method: 'post',
-            url: backendconfig+'/user/uploadProfilePhoto',
+            url: backendconfig + '/user/uploadProfilePhoto',
             data: data,
-            headers: {'Content-Type': 'multipart/form-data' }
-            })    
-        .then(response => {
-                console.log("Status Code : ",response.status);
-                if(response.status === 200){
+            headers: { 'Content-Type': 'multipart/form-data' }
+        })
+            .then(response => {
+                console.log("Status Code : ", response.status);
+                if (response.status === 200) {
                     this.setState({
-                        authFlag : true
+                        authFlag: true
                     })
-                }else{
+                } else {
                     console.log(response.data.msg);
                     this.setState({
-                        errorMsg : response.data,
-                        authFlag : false
+                        errorMsg: response.data,
+                        authFlag: false
                     })
                 }
             });
-     }
+    }
 
     inputChangeHandler = (event) => {
         const target = event.target;
@@ -92,7 +92,7 @@ class BasicDetails extends Component {
     submitbasicDetails = (e) => {
 
         const data = {
-          //  user_type: 1,
+            //  user_type: 1,
             id: this.state.id,
             fname: this.state.fname,
             lname: this.state.lname,
@@ -129,7 +129,7 @@ class BasicDetails extends Component {
             uid: this.props.id
         }
         console.log("In Student Basic data is", data.id);
-        axios.post(backendconfig+'/studentProfileDetail', data)
+        axios.post(backendconfig + '/studentProfileDetail', data)
             .then((response) => {
                 let data = response.data;
                 console.log(data);
@@ -140,13 +140,13 @@ class BasicDetails extends Component {
                     lname: data.lname,
                     school: data.school,
                     emailId: data.email_id,
-                    birthdate: !!(data.birthDate) ?data.birthDate :'',
-                    major: !!(data.major) ?data.major :'',
+                    birthdate: !!(data.birthDate) ? data.birthDate : '',
+                    major: !!(data.major) ? data.major : '',
                     city: !!(data.city) ? data.city : '',
-                    state: !!(data.state) ?data.state :'',
-                    country: !!(data.country) ?data.country :'',
-                    phoneNum: !!(data.phone_num) ?data.phone_num :'' ,
-                    profile: !!(data.profile)? backendconfig + '/uploads/' + data.profile.trim() :backendconfig + '/uploads/noprofile.jpg'
+                    state: !!(data.state) ? data.state : '',
+                    country: !!(data.country) ? data.country : '',
+                    phoneNum: !!(data.phone_num) ? data.phone_num : '',
+                    profile: !!(data.profile) ? backendconfig + '/uploads/' + data.profile.trim() : backendconfig + '/uploads/noprofile.jpg'
                 });
             });
     }
@@ -160,8 +160,8 @@ class BasicDetails extends Component {
     render() {
         //redirect based on successful login
         let msg;
-        let photoDisplay, fiedlValues;
-        let originalValues, display_according_userType;
+        let fiedlValues;
+        let display_according_userType;
 
         console.log("Getting user-type" + this.state.userId === this.state.loginUserId);
         if (this.state.errorMsg) {
@@ -177,9 +177,9 @@ class BasicDetails extends Component {
         }
         if (!this.state.editFlag) {
             fiedlValues =
-                <div style={{backgroundColor :'whitesmoke' ,width: 300}}>
+                <div style={{ backgroundColor: 'whitesmoke', width: 300 }}>
                     <div >
-                        <img src={this.state.profile}  alt="Student profile" style={{borderRadius :25 ,border :"1px solid black" ,height : 100 ,width :100}}></img>
+                        <img src={this.state.profile} alt="Student profile" style={{ borderRadius: 25, border: "1px solid black", height: 100, width: 100 }}></img>
                     </div>
                     <div >
 
@@ -269,13 +269,13 @@ class BasicDetails extends Component {
 
                     <div class="">
                         <label> State </label>
-                        <input  type="text" class="form-control" name="state" value={this.state.state} id="state" onChange={this.inputChangeHandler} placeholder="State" />
+                        <input type="text" class="form-control" name="state" value={this.state.state} id="state" onChange={this.inputChangeHandler} placeholder="State" />
                     </div>
                     <div class="">
                         <label> Country </label>
                         <input type="text" class="form-control" name="country" value={this.state.country} id="country" onChange={this.inputChangeHandler} placeholder="Country" />
                     </div>
-                    <br/>
+                    <br />
                     <div class="row">
                         <input type="submit" class="btn btn-info" value="Save" onSubmit={this.submitbasicDetails} />
                     </div>
@@ -286,7 +286,7 @@ class BasicDetails extends Component {
         return (
             <div class="container">
                 {display_according_userType}
-                <br/><br/>
+                <br /><br />
                 {fiedlValues}
             </div>
         )

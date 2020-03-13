@@ -26,7 +26,7 @@ class Navbar extends Component {
         // //if Cookie is set render Logout Button
          let navLogin = null,navLoginLanding=null;
          let navbar;
-         if(cookie.load('cookie')){
+         if(new Cookies().get("user_type")){
              navLogin = (
                  <ul class="nav navbar-nav navbar-right">
                          <li><Link to="/" onClick = {this.handleLogout}><span class="glyphicon glyphicon-user"></span>Logout</Link></li>
@@ -38,7 +38,7 @@ class Navbar extends Component {
              )
          } 
         console.log("Nav userType is"+this.state.userType+"and " +new Cookies().get("user_type"));
-        if(parseInt(this.state.userType) === 1) {
+        if(parseInt(new Cookies().get("user_type")) === 1) {
             navbar=    <ul class="nav navbar-nav">
             <li ><Link class="active" to="/jobs">Jobs</Link></li>
             <li><Link to="/student/appliedjobs">Applications</Link></li>
@@ -47,7 +47,7 @@ class Navbar extends Component {
             <li><Link to='/student/allStudents'>Students</Link></li>
             <li><Link to='/student/studentprofile'>Student Profile</Link></li>
             </ul>
-        } else if(parseInt(this.state.userType) === 2) {
+        } else if(parseInt(new Cookies().get("user_type")) === 2) {
             navbar=   <ul class="nav navbar-nav">
             <li ><Link to="/company/jobposting">Post A Job</Link></li>
             <li><Link to="/company/eventposting">Post an event</Link></li>
