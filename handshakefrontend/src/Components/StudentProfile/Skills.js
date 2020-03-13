@@ -70,13 +70,13 @@ class Skills extends Component {
 
        // e.preventDefault();
 
+       console.log("For setting skills",this.state.allSkills.join());
+       axios.defaults.withCredentials = true;
+
         const data = {
             id: this.state.id,
             skills : this.state.allSkills.join()
         };
-
-        console.log("Set skills" , data.skills);
-        axios.defaults.withCredentials = true;
 
         axios.post(backendconfig+'/user/setskills',data)
         .then(respose => {
@@ -102,7 +102,7 @@ class Skills extends Component {
     render() {
         let msg;
         let fiedlValues, display_according_userType;
-        console.log("All skills are"+ this.state.allSkills);
+//        console.log("All skills are"+ this.state.allSkills);
 
         if (this.state.errorMsg !== "") {
             msg = <div class="alert alert-danger" role="alert">{this.state.errorMsg}</div>;
@@ -144,7 +144,7 @@ class Skills extends Component {
             <div class="container">
                 {display_according_userType}
                 {fiedlValues}
-                {msg}
+                {/* {msg} */}
             </div>
         )
     }
