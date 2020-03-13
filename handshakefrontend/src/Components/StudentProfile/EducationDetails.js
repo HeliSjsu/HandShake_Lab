@@ -70,7 +70,7 @@ class EducationDetails extends Component {
             yearOfPassing: this.state.yearOfPassing, 
             cgpa: this.state.cgpa, 
         }
-        console.log("get Education id",this.props.id);
+        console.log("Before submitting Education id",this.props);
 
         axios.defaults.withCredentials = true;
         //make a post request with the user data

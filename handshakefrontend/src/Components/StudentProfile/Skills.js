@@ -80,11 +80,17 @@ class Skills extends Component {
 
         axios.post(backendconfig+'/user/setskills',data)
         .then(respose => {
+            console.log(respose);
             if(respose.data.status === 200) {
                 this.setState({
                     authFlag : true
                 })
             }
+        }).catch(error =>{
+            this.setState({
+                errorMsg : error.msg
+            })
+            console.log("Error has occured");
         });
     }
 
@@ -98,7 +104,7 @@ class Skills extends Component {
         let fiedlValues, display_according_userType;
         console.log("All skills are"+ this.state.allSkills);
 
-        if (this.state.errorMsg) {
+        if (this.state.errorMsg !== "") {
             msg = <div class="alert alert-danger" role="alert">{this.state.errorMsg}</div>;
         }
 

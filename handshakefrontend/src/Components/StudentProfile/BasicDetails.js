@@ -45,6 +45,7 @@ class BasicDetails extends Component {
     }
 
     uploadProfile = () => {
+   
         console.log(this.state.selectedFile);
         const data = new FormData();
 
