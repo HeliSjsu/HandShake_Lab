@@ -74,6 +74,7 @@ class StudentCommon extends Component {
         const target = event.target;
         const value = target.value;
         const name = target.name;
+        console.log(name+value);
         this.setState({
             [name]: value
         });
@@ -117,7 +118,7 @@ class StudentCommon extends Component {
                         </div>
                         <span class="h5">  {this.props.student.major}  at {this.props.student.school}</span>
                        <p> <a href={backendconfig + '/uploads/' + this.props.student.resume.trim()} target="_blank"> View resume</a></p>
-                            <select name="status" value={this.state.status} onChange={this.inputChangeHandler}>
+                            <select name="status" onChange={this.inputChangeHandler}>
                                 <option value="1">Pending</option>
                                 <option value="2">Reviewed</option>
                                 <option value="3">Accepted</option>
