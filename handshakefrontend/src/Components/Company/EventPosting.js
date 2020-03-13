@@ -3,6 +3,7 @@ import '../../App.css';
 import axios from 'axios';
 import backendconfig from '../../backendConfig';
 import Cookies from 'universal-cookie';
+import { Redirect } from 'react-router';
 
 class EventPosting extends Component {
    
@@ -56,7 +57,7 @@ class EventPosting extends Component {
             edate : this.state.edate,
             loc : this.state.loc,
             eligibility : this.state.eli,
-            userId :this.state.id
+            userId :this.state.user_id
         }
 
         axios.post(backendconfig+'/event/createNewEvent',data)
@@ -77,10 +78,17 @@ class EventPosting extends Component {
     }
 
     render() {
-                          
+        let redirectVar = null;
+
+        if(this.state.authFlag) {
+            redirectVar = <div class="alert alert-success"> Event Added Successfully</div>//<Redirect to='/company/eventlisting'></Redirect>
+        }
+                         
         return (
             <div class="container">
+                
                 <h2> Post Event</h2>
+                {redirectVar}
                 <form onSubmit={this.createNewEvent}>
                 <div class="form-group">
                     <label> Event Name </label>
@@ -93,7 +101,7 @@ class EventPosting extends Component {
                     <option value="All">All</option>
                     <option value="SE">Software Engineer</option>
                     <option value="Arts">Arts and Design</option>
-                    <option value="Med">Medical</option>
+                    <option value="Med">Electrical Engineering</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -114,7 +122,7 @@ class EventPosting extends Component {
                 </div>
                 <div class="form-group">
                   
-                    <input type="submit"  class="btn btn-info" value="Post Job"/>
+                    <input type="submit"  class="btn btn-info" value="Post Event"/>
                 </div>
                 </form>
             </div>

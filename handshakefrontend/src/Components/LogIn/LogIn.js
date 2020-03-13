@@ -85,15 +85,14 @@ class LogIn extends Component {
                         if (this.state.userType === 1) {
                             cookies.set("student_user_id", response.data.msg, { path: "/", maxAge: 600000 });
                             this.props.history.push({
-                                pathname: '/student/studentprofile',
-                                id: response.data.msg
+                                pathname:'/jobs',
                             })
                         }
                         else if (this.state.userType === 2) {
                             cookies.set("company_user_id", response.data.msg, { path: "/", maxAge: 600000 });
                             //  this.props.history.push('/company');
                             this.props.history.push({
-                                pathname: '/company',
+                                pathname: '/company/joblisting',
                                 id: response.data.msg
                             })
                         }
@@ -122,14 +121,14 @@ class LogIn extends Component {
             alternateLogin = <div>
                 <div>
                     If you are  Employer
-                  <button type="button" name="userType" onClick={this.onClickUserType}>ClickMe</button>
+                  <button type="button" class="btn btn-light" name="userType" onClick={this.onClickUserType}>ClickMe</button>
                 </div>
             </div>;
         } else if (this.state.userType === 2) {
             alternateLogin = <div>
                 <div>
                     If you are Student
-                    <button type="button" name="userType" onClick={this.onClickUserType}>ClickMe</button>
+                    <button type="button" class="btn btn-light" name="userType" onClick={this.onClickUserType}>ClickMe</button>
                 </div>
             </div>;
         }
@@ -164,7 +163,7 @@ class LogIn extends Component {
                 </fieldset>
                 <div>
                     If you are new user
-                    <Link to="/signup">Click Here</Link>
+                    <Link to="/signup">&nbsp;Click Here</Link>
                 </div>
                 <div>
                     {alternateLogin}

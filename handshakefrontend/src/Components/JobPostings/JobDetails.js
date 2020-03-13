@@ -11,16 +11,6 @@ class JobDetails extends Component {
         super(props);
         console.log("Inside JobDetails" + props.userType + " other:" + props.details.title);
         this.state = {
-            userType: props.userType,
-            jid: props.details.jid,
-            c_userId: props.details.user_id,
-            title: props.details.title,
-            catagory: props.details.job_category,
-            c_name: props.details.c_name,
-            c_city: props.details.city,
-            c_state: props.details.state,
-            c_country: props.details.scountry,
-            loc: props.details.location,
             errorMsg: "",
             selectedFile: null,
             editFlag: false,
@@ -63,13 +53,13 @@ class JobDetails extends Component {
         // let msg;
         let editedValues, userSpecificDisplay;
         userSpecificDisplay = "";
-        console.log("User type is", this.state.userType, typeof this.state.userType);
-        if (this.state.userType === "1") {
+        console.log("User type is", this.props.userType, typeof this.props.userType);
+        if (this.props.userType === "1") {
             userSpecificDisplay = <Link to={{
                 pathname: '/company',
-                id: this.state.c_userId,
-                userType: this.state.userType
-            }} > <span> {this.state.c_name} </span> </Link>;
+                id: this.props.details.user_id,
+                userType: this.props.userType
+            }} > <span> {this.props.details.c_name} </span> </Link>;
         }
 
 
@@ -86,14 +76,14 @@ class JobDetails extends Component {
                 <div class="row">
                     <div class="col-sm-4" style={{overflowY :"scroll"}}>
                         <div style={{ borderBottom: "solid black" }}>
-                            <li>
-                            <div>
+                    <li>
+                        <div>
                         <label class="h4"> Job Title :</label>
-                        <span style={{ display: 'block', width: 100 }}>{this.state.title}</span>
+                        <span style={{ display: 'block', width: 100 }}>{this.props.details.title}</span>
                     </div>
                     <div>
                         <label class="h5">Job Location: </label>
-                        <span style={{ display: 'block', width: 100 }}>{this.state.loc}</span>
+                        <span style={{ display: 'block', width: 100 }}>{this.props.details.location}</span>
                     </div>
                     <div>
                         {userSpecificDisplay}
@@ -101,7 +91,7 @@ class JobDetails extends Component {
                     {/* <span>{this.state.c_city},{this.state.c_state}</span> */}
                     <div>
                         <label class="h5"> Job Category: </label>
-                        <span style={{ display: 'block', width: 100 }}>{this.state.catagory}</span>
+                        <span style={{ display: 'block', width: 100 }}>{this.props.details.job_category}</span>
                     </div>
                     <div>
                         <a onClick={this.onClickHandler}>Click here for more info</a>

@@ -48,7 +48,7 @@ class CompanyEventList extends Component {
 
         allFields = <ol> {
             this.state.eventList.map(item => {
-                return <EventDetails details={item} userType={this.state.userType}></EventDetails>
+                return <div><EventDetails details={item} userType={this.state.userType}></EventDetails><br/><br/></div>
             })
         }
         </ol>;

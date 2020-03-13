@@ -94,7 +94,9 @@ class SignUp extends Component{
             {redirectVar}
             <div class="container">
                  <div class="row">
-                 <div class="col-sm-6"></div>
+                 <div class="col-sm-6">
+                 <div class="h2">Company Signup  </div>
+                 </div>
                  <div class="col-sm-6">
                 <form onSubmit ={this.submitSignUp} >
                 <br/><br/><br/>
@@ -102,8 +104,15 @@ class SignUp extends Component{
                  <br/>
                  <div class="col-sm-8">
                      
-                    <label> First Name </label>
+                    <label> Company Name </label>
                     <input type="text" class="form-control" value={this.state.cname} name="cname" id="cname" onChange = {this.inputChangeHandler} placeholder="Company Name"  required/>
+                </div>
+                </div>
+                <div class="row">
+                <br/>
+                <div class="col-sm-8">
+                    <label> Location </label>
+                    <input type="text" class="form-control" name="loc" id="text" onChange = {this.inputChangeHandler} placeholder="Enter Location"  required/>
                 </div>
                 </div>
                 <div class="row">

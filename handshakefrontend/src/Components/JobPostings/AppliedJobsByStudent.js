@@ -80,12 +80,12 @@ class AppliedJobsByStudent extends Component {
             <ul>
             {   
                 this.state.filteredResult.map( item => {
-                    individualDisplay = <li style={{border:"1px solid white",boxShadow: '5px 5px 10px rgba(0,0,0,0.5)'}}><br/>
+                    individualDisplay = <div><li style={{border:"1px solid white",boxShadow: '5px 5px 10px rgba(0,0,0,0.5)'}}><br/>
                         <div class="row">
                          <div class="col-sm-2">
-                         <img src={!!(item.c_profile) ? backendconfig+'/uploads/'+item.c_profile.trim() :''} alt="Profile Not uploaded" style={{borderRadius :25 ,border :"1px solid black" ,height:145, width :140}}></img>
+                         <img src={!!(item.c_profile) ? backendconfig+'/uploads/'+item.c_profile.trim() :backendconfig+'/uploads/noprofile.jpg'} alt="Profile Not uploaded" style={{borderRadius :25 ,border :"1px solid black" ,height:145, width :140}}></img>
                         </div>   
-                        <div class="col-sm-7" style={{backgroundColor : '#f2eded'}} >
+                        <div class="col-sm-7" style={{backgroundColor : 'whitesmoke'}} >
                         <div class="h3">
                             {item.job_title} - {item.job_category}
                         </div>
@@ -104,7 +104,7 @@ class AppliedJobsByStudent extends Component {
                         Application Closes on {item.deadline.substring(0,10)}
                         </div>
                         </div>
-                    </div></li>;
+                    </div></li><br/><br/></div>;
                     return individualDisplay; 
                  })
             }
@@ -113,14 +113,17 @@ class AppliedJobsByStudent extends Component {
         
         return (
             <div class="container">
+                <div class="h1"> Jobs Applied </div>
                 <br/><br/>
-                <select name="status" value={this.state.status} onChange={this.inputChangeHandler}>
+                <select name="status" class="form-control" value={this.state.status} onChange={this.inputChangeHandler}>
                     <option value="0">All</option>
                     <option value="1">Pending</option>
                     <option value="2">Reviewed</option>
                     <option value="3">Accepted</option>
                     <option value="4">Declined</option>
                 </select>
+                <br/><br/>
+
                 {displayField}
             </div>
         )

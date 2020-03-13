@@ -49,7 +49,7 @@ class StudentCommon extends Component {
 
         const data = {
             status_id: this.state.status_id,
-            status: this.state.status
+            status: this.props.student.status
         }
         console.log(data.status_id + "Request" + data.status)
         axios.post(backendconfig + '/job/updatestudentStatus', data)
@@ -62,10 +62,10 @@ class StudentCommon extends Component {
     }
 
     onClickProfile = (e) => {
-        console.log("Printing student id : ", this.state.uid);
+        console.log("Printing student id : ", this.props.student.uid);
         this.props.history.push({
             pathname: '/student/studentprofile',
-            id: this.state.uid
+            id: this.props.student.uid
         })
     }
 
@@ -109,15 +109,14 @@ class StudentCommon extends Component {
                 <div class="container">
                     <form onSubmit={this.updateJobStatus}>
                         <div>
-                            <button type="button" onClick={this.onClickProfile} title="click to view profile" class="btn btn-primary-outline" style={{backgroundColor : "transparent"}}> <span class="h3"> {this.state.name}</span></button>
+                            <button type="button" onClick={this.onClickProfile} title="click to view profile" class="btn btn-primary-outline" style={{backgroundColor : "transparent"}}> <span class="h3"> {this.props.student.name}</span></button>
                             <br />
                             <div>
                         <svg style={{height:10 ,width:10}}  aria-hidden="true" data-prefix="fas" data-icon="school" class="svg-inline--fa fa-school fa-w-20 icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M0 224v272c0 8.84 7.16 16 16 16h80V192H32c-17.67 0-32 14.33-32 32zm360-48h-24v-40c0-4.42-3.58-8-8-8h-16c-4.42 0-8 3.58-8 8v64c0 4.42 3.58 8 8 8h48c4.42 0 8-3.58 8-8v-16c0-4.42-3.58-8-8-8zm137.75-63.96l-160-106.67a32.02 32.02 0 0 0-35.5 0l-160 106.67A32.002 32.002 0 0 0 128 138.66V512h128V368c0-8.84 7.16-16 16-16h96c8.84 0 16 7.16 16 16v144h128V138.67c0-10.7-5.35-20.7-14.25-26.63zM320 256c-44.18 0-80-35.82-80-80s35.82-80 80-80 80 35.82 80 80-35.82 80-80 80zm288-64h-64v320h80c8.84 0 16-7.16 16-16V224c0-17.67-14.33-32-32-32z"></path></svg>
                         </div>
-                        <span class="h5">  {this.state.major}  at {this.state.school}</span>
-                        <span> View Resume</span>
-                            <br/>
-                            <select name="status" value={this.state.status} onChange={this.inputChangeHandler}>
+                        <span class="h5">  {this.props.student.major}  at {this.props.student.school}</span>
+                       <p> <a href={backendconfig + '/uploads/' + this.props.student.resume.trim()} target="_blank"> View resume</a></p>
+                            <select name="status" value={this.props.student.status} onChange={this.inputChangeHandler}>
                                 <option value="1">Pending</option>
                                 <option value="2">Reviewed</option>
                                 <option value="3">Accepted</option>
@@ -132,12 +131,12 @@ class StudentCommon extends Component {
                 <form >
                     <li>
                     <div>
-                        <button type="button" onClick={this.onClickProfile} title="click to view profile" class="btn btn-primary-outline" style={{backgroundColor : "transparent"}}> <span class="h3"> {this.state.name}</span></button>
+                        <button type="button" onClick={this.onClickProfile} title="click to view profile" class="btn btn-primary-outline" style={{backgroundColor : "transparent"}}> <span class="h3"> {this.props.student.name}</span></button>
                         <br />
                         <div>
                         <svg style={{height:12 ,width:12}} aria-hidden="true" data-prefix="fas" data-icon="school" class="svg-inline--fa fa-school fa-w-20 icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M0 224v272c0 8.84 7.16 16 16 16h80V192H32c-17.67 0-32 14.33-32 32zm360-48h-24v-40c0-4.42-3.58-8-8-8h-16c-4.42 0-8 3.58-8 8v64c0 4.42 3.58 8 8 8h48c4.42 0 8-3.58 8-8v-16c0-4.42-3.58-8-8-8zm137.75-63.96l-160-106.67a32.02 32.02 0 0 0-35.5 0l-160 106.67A32.002 32.002 0 0 0 128 138.66V512h128V368c0-8.84 7.16-16 16-16h96c8.84 0 16 7.16 16 16v144h128V138.67c0-10.7-5.35-20.7-14.25-26.63zM320 256c-44.18 0-80-35.82-80-80s35.82-80 80-80 80 35.82 80 80-35.82 80-80 80zm288-64h-64v320h80c8.84 0 16-7.16 16-16V224c0-17.67-14.33-32-32-32z"></path></svg>
                         
-                        <span class="h5">  {this.state.major}  at {this.state.school}</span>
+                        <span class="h5">  {this.props.student.major}  at {this.props.student.school}</span>
                         </div>
                     </div>
                     </li>
@@ -153,9 +152,11 @@ class StudentCommon extends Component {
             userSpecificDisplay = <div class="container">
                 <form >
                     <div>
-                        <a onClick={this.onClickProfile}> <span> Student Name :{this.state.name}</span></a>
-                        <br />
-                        <span> Education : {this.state.major},{this.state.school}</span>
+                    <button type="button" onClick={this.onClickProfile} title="click to view profile" class="btn btn-primary-outline" style={{backgroundColor : "transparent"}}> <span class="h3"> {this.props.student.name}</span></button>
+                         <br />
+                        <svg style={{height:12 ,width:12}} aria-hidden="true" data-prefix="fas" data-icon="school" class="svg-inline--fa fa-school fa-w-20 icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M0 224v272c0 8.84 7.16 16 16 16h80V192H32c-17.67 0-32 14.33-32 32zm360-48h-24v-40c0-4.42-3.58-8-8-8h-16c-4.42 0-8 3.58-8 8v64c0 4.42 3.58 8 8 8h48c4.42 0 8-3.58 8-8v-16c0-4.42-3.58-8-8-8zm137.75-63.96l-160-106.67a32.02 32.02 0 0 0-35.5 0l-160 106.67A32.002 32.002 0 0 0 128 138.66V512h128V368c0-8.84 7.16-16 16-16h96c8.84 0 16 7.16 16 16v144h128V138.67c0-10.7-5.35-20.7-14.25-26.63zM320 256c-44.18 0-80-35.82-80-80s35.82-80 80-80 80 35.82 80 80-35.82 80-80 80zm288-64h-64v320h80c8.84 0 16-7.16 16-16V224c0-17.67-14.33-32-32-32z"></path></svg>
+                        
+                        <span class="h5"> {this.props.student.major},{this.props.student.school}</span>
                         <br />
                     </div>
                 </form>

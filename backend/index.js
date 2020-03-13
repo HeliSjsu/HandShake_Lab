@@ -75,12 +75,14 @@ app.post('/signup', function (req, res) {
   con.connect(function (err) {
     if (err) errorMsg = err.message;
     if(req.body.user_type === 1) {
+      console.log("It's Student");
       var sql = "CALL insert_student(?,?,?,?,?,?,?)";
       con.query(sql, [req.body.emailId, hash, req.body.user_type, req.body.fname, req.body.lname, req.body.major, req.body.school], function (err, result) {
         if (err) errorMsg = err.message;
       });
     } else if(req.body.user_type === 2) {
-      var sql = "CALL insert_company(?,?,?,?,?,?,?)";
+      console.log("It's company"+req.body.loc);
+      var sql = "CALL insert_company(?,?,?,?,?)";
       con.query(sql, [req.body.emailId, hash, req.body.user_type, req.body.cname, req.body.loc], function (err, result) {
         if (err) errorMsg = err.message;
       });

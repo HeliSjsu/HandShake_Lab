@@ -18,15 +18,18 @@ import AllStudents from './StudentProfile/AllStudents';
 import EventsRegisteredByStudents from './Event/EventsRegisteredByStudent';
 import AllStudentTab from './Company/AllStudentTab';
 import Navbar from './Navbar';
+import CompanySignup from './SignUp/companySignup';
 
 //Create a Main Component
 class Main extends Component {
     render(){
         return(
             <div>
-                {/* <Switch> */}
+                
+                  
                     <Route path="/" component={Navbar}/>
                     <Route path="/signup" component={SignUp}/>
+                    <Route path="/company/signup" component={CompanySignup}/>   
                     <Route path="/login" component={LogIn}/>
                     <Route exact path="/company" component={CompanyProfile} />
                     <Route path="/company/jobposting" component={JobPosting}/>
@@ -43,7 +46,7 @@ class Main extends Component {
                     <Route path='/student/allStudents' component={AllStudents}/>
                     <Route path='/student/registeredEvents' component ={EventsRegisteredByStudents}/>
                     <Route path='/studentListCommon' component={StudentListCommon}/>
-                {/* </Switch> */}
+               
             </div>
         )
     }

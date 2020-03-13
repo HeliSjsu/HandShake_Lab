@@ -65,6 +65,8 @@ class JobPosting extends Component {
             if(response.status === 200){
                 this.setState({
                     authFlag : true
+                },() =>{
+                    this.props.history.push('/company/joblisting');
                 })
             }else{
                 console.log(response.data.msg);

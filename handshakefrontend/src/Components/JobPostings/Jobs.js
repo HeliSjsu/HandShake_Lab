@@ -86,7 +86,7 @@ class Jobs extends Component {
         let displayField ;
         displayField = <div> {
             this.state.filteredResult.map( item => {
-               return <JobDetails details={item} userType={this.state.userType}></JobDetails>
+               return  <JobDetails details={item} userType={this.state.userType}></JobDetails> 
             })
         }
         </div>;
