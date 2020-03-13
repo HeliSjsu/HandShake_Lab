@@ -67,7 +67,7 @@ class JobMoreDetail extends Component {
                 }
             }).catch(error => {
                 this.setState({
-                    errorMsg: error
+                    errorMsg: error.msg
                 });
             });
     }
