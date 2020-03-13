@@ -116,7 +116,7 @@ class StudentCommon extends Component {
                         </div>
                         <span class="h5">  {this.props.student.major}  at {this.props.student.school}</span>
                        <p> <a href={backendconfig + '/uploads/' + this.props.student.resume.trim()} target="_blank"> View resume</a></p>
-                            <select name="status" value={this.props.student.status} onChange={this.inputChangeHandler}>
+                            <select name="status" value={this.state.status} onChange={this.inputChangeHandler}>
                                 <option value="1">Pending</option>
                                 <option value="2">Reviewed</option>
                                 <option value="3">Accepted</option>
