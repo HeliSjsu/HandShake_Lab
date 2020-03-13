@@ -134,7 +134,7 @@ router.get('/getAllStudentsForComapany', (req,res) => {
     console.log(" Get Student Company filter",req.body);
     let con = mysql.createConnection(config);
     
-   let sql ="SELECT  s.id,s.school,s.major,s.profile,concat(s.fname,' ',s.lname) as name,s.user_id as uid FROM studentdetails s where (s.fname like '%"+ req.query.searchName +"%' or s.lname like '%"+ req.query.searchName +"%') and s.skills like '%"+ req.query.searchSkills +"%'and s.school like '%"+ req.query.searchSchool +"%'";
+   let sql ="SELECT  s.id,s.school,s.major,s.profile,concat(s.fname,' ',s.lname) as name,s.user_id as uid FROM StudentDetails s where (s.fname like '%"+ req.query.searchName +"%' or s.lname like '%"+ req.query.searchName +"%') and s.skills like '%"+ req.query.searchSkills +"%'and s.school like '%"+ req.query.searchSchool +"%'";
     console.log(sql);
     con.connect(function(err){
        if(err)

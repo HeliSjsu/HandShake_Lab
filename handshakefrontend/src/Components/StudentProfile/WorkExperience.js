@@ -137,7 +137,7 @@ class WorkExperience extends Component {
         console.log("userType is" , this.props.userType);
         if(this.props.userType === '2'){
             fiedlValues = 
-            <div>
+            <div style={{backgroundColor :'whitesmoke' ,width: 700}}>
                 <p> Company Name : {this.state.companyName} </p>
                 <p>Title : {this.state.title} </p>
                 <p> Location : {this.state.loc} </p>
