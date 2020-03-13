@@ -109,8 +109,8 @@ class ContactDetails extends Component {
     render() {
         //redirect based on successful login
         let msg;
-        let editFlag ,fiedlValues;
-        let display_according_userType , editedValues ;
+        let fiedlValues;
+        let display_according_userType ;
 
         if(this.state.user_type === '2') {
             display_according_userType = <div></div>;
