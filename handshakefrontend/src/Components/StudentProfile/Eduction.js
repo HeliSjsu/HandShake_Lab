@@ -72,7 +72,7 @@ class Education extends Component {
                 })
             }
         });
-        this.onClickHandler
+        this.onClickHandler();
     }
 
     deleteEducation = (e) =>{
