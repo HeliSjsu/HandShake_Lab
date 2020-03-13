@@ -65,7 +65,7 @@ class JobDetails extends Component {
 
         console.log("JobDetail State", this.props);
         if (this.state.editFlag) {
-           // editedValues ="";
+            // editedValues ="";
             editedValues =
                 <div>
                     <JobMoreDetail moredetail={this.props.details}></JobMoreDetail>
@@ -74,28 +74,28 @@ class JobDetails extends Component {
         return (
             <div>
                 <div class="row">
-                    <div class="col-sm-4" style={{overflowY :"scroll"}}>
+                    <div class="col-sm-4" style={{ overflowY: "scroll" }}>
                         <div style={{ borderBottom: "solid black" }}>
-                    <li>
-                        <div>
-                        <label class="h4"> Job Title :</label>
-                        <span style={{ display: 'block', width: 100 }}>{this.props.details.title}</span>
-                    </div>
-                    <div>
-                        <label class="h5">Job Location: </label>
-                        <span style={{ display: 'block', width: 100 }}>{this.props.details.location}</span>
-                    </div>
-                    <div>
-                        {userSpecificDisplay}
-                    </div>
-                    {/* <span>{this.state.c_city},{this.state.c_state}</span> */}
-                    <div>
-                        <label class="h5"> Job Category: </label>
-                        <span style={{ display: 'block', width: 100 }}>{this.props.details.job_category}</span>
-                    </div>
-                    <div>
-                        <a onClick={this.onClickHandler}>Click here for more info</a>
-                    </div>
+                            <li>
+                                <div>
+                                    <label class="h4"> Job Title :</label>
+                                    <span style={{ display: 'block' }}>{this.props.details.title}</span>
+                                </div>
+                                <div>
+                                    <label class="h5">Job Location: </label>
+                                    <span style={{ display: 'block', width: 100 }}>{this.props.details.location}</span>
+                                </div>
+                                <div>
+                                    {userSpecificDisplay}
+                                </div>
+                                {/* <span>{this.state.c_city},{this.state.c_state}</span> */}
+                                <div>
+                                    <label class="h5"> Job Category: </label>
+                                    <span style={{ display: 'block', width: 100 }}>{this.props.details.job_category}</span>
+                                </div>
+                                <div>
+                                    <a onClick={this.onClickHandler}>Click here for more info</a>
+                                </div>
                             </li>
                         </div>
                     </div>

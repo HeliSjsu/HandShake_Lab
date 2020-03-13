@@ -161,21 +161,21 @@ class WorkExperienceDetail extends Component {
               
             <div class="col-sm- 8">
                  
-                 <label class="control-label"> Company Name </label>
-                 <input type="text" class="form-control"  name="companyName" id="companyName" onChange = {this.inputChangeHandler} placeholder="company Name"  required/>
+            &nbsp;&nbsp;&nbsp;&nbsp; <label class="control-label"> Company Name </label>
+                <input  style={{width:550}} type="text" class="form-control"  name="companyName" id="companyName" onChange = {this.inputChangeHandler} placeholder="company Name"  required/>
              </div>
              </div>
              <div class="row">
               
               <div class="col-sm-8">
                  <label> Title </label>
-                 <input type="text" class="form-control" name="title" id="title" onChange = {this.inputChangeHandler} placeholder=" Title"  required/>
+                 <input type="text" class="form-control" style={{width:550}}  name="title" id="title" onChange = {this.inputChangeHandler} placeholder=" Title"  required/>
              </div>
              </div>
              <div class="row">    
              <div class="col-sm-8 form-group">
                  <label> Location</label>
-                 <input type="text" class="form-control" name="loc"  onChange = {this.inputChangeHandler} id="loc" placeholder=" Locaton"  />
+                 <input type="text" class="form-control" style={{width:550}} name="loc"  onChange = {this.inputChangeHandler} id="loc" placeholder=" Locaton"  />
              </div>
              </div>
              <div class="row form-group">      
@@ -183,18 +183,18 @@ class WorkExperienceDetail extends Component {
             <div class="col-sm-4">
                 
                <label>  Start date</label>
-               <input type="date" class="form-control"  name="start_date" id="start_date" onChange = {this.inputChangeHandler} placeholder="Start Date"  />
+               <input type="date" class="form-control" style={{width:250}}  name="start_date" id="start_date" onChange = {this.inputChangeHandler} placeholder="Start Date"  />
            </div>
            
             <div class="col-sm-4">
                <label> End Date </label>
-               <input type="date" class="form-control" name="end_date"  id="end_date" onChange = {this.inputChangeHandler} placeholder="End Date"  />
+               <input type="date" class="form-control"  style={{width:250}} name="end_date"  id="end_date" onChange = {this.inputChangeHandler} placeholder="End Date"  />
            </div>
            </div> 
            <div class="row">    
              <div class="col-sm-8 form-group">
                  <label> Work Description</label>
-                 <textarea  rows="4" type="textarea" class="form-control" name="desc"  onChange = {this.inputChangeHandler} id="desc" placeholder=" Work Description"  />
+                 <textarea  rows="4"  style={{width:550}} type="textarea" class="form-control" name="desc"  onChange = {this.inputChangeHandler} id="desc" placeholder=" Work Description"  />
              </div>
              </div>
            <div> 

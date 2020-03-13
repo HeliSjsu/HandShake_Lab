@@ -146,7 +146,7 @@ class BasicDetails extends Component {
                     state: !!(data.state) ? data.state : '',
                     country: !!(data.country) ? data.country : '',
                     phoneNum: !!(data.phone_num) ? data.phone_num : '',
-                    profile: !!(data.profile) ? backendconfig + '/uploads/' + data.profile.trim() : backendconfig + '/uploads/noprofile.jpg'
+                    profile: (data.profile == null) ? backendconfig + '/uploads/' + data.profile.trim() : backendconfig + '/uploads/noprofile.jpg'
                 });
             });
     }
@@ -239,41 +239,41 @@ class BasicDetails extends Component {
                     <button type="button" onClick={() => { this.fileInput.click() }} > Upload Image</button>
                     <div>
                         <label> First Name </label>
-                        <input class="form-control" type="text" name="fname" value={this.state.fname} id="fname" onChange={this.inputChangeHandler} placeholder="First Name" required />
+                        <input style={{width:300}} class="form-control" type="text" name="fname" value={this.state.fname} id="fname" onChange={this.inputChangeHandler} placeholder="First Name" required />
                     </div>
                     <div>
                         <label> Last Name </label>
-                        <input class="form-control" type="text" name="lname" value={this.state.lname} id="lname" onChange={this.inputChangeHandler} placeholder="Last Name" required />
+                        <input  style={{width:300}} class="form-control" type="text" name="lname" value={this.state.lname} id="lname" onChange={this.inputChangeHandler} placeholder="Last Name" required />
                     </div>
                     <div >
                         <label> School</label>
-                        <input class="form-control" type="email" name="school" value={this.state.school} id="school" readOnly />
+                        <input  style={{width:300}} class="form-control" type="email" name="school" value={this.state.school} id="school" readOnly />
                     </div>
 
                     <div>
 
                         <div >
                             <label> Major</label>
-                            <input class="form-control" type="text" name="major" value={this.state.major} id="major" readOnly />
+                            <input class="form-control"  style={{width:300}} type="text" name="major" value={this.state.major} id="major" readOnly />
                         </div>
                         <div>
                             <label> Birth Date</label>
-                            <input class="form-control" type="date" name="birthdate" value={this.state.birthdate} id="birthdate" onChange={this.inputChangeHandler} placeholder="Birth Date" />
+                            <input class="form-control"  style={{width:300}} type="date" name="birthdate" value={this.state.birthdate} id="birthdate" onChange={this.inputChangeHandler} placeholder="Birth Date" />
                         </div>
                     </div>
 
                     <div>
                         <label>  City</label>
-                        <input class="form-control" type="text" name="city" value={this.state.city} id="city" onChange={this.inputChangeHandler} placeholder="City" />
+                        <input class="form-control"  style={{width:300}}  type="text" name="city" value={this.state.city} id="city" onChange={this.inputChangeHandler} placeholder="City" />
                     </div>
 
                     <div class="">
                         <label> State </label>
-                        <input type="text" class="form-control" name="state" value={this.state.state} id="state" onChange={this.inputChangeHandler} placeholder="State" />
+                        <input type="text"  style={{width:300}} class="form-control" name="state" value={this.state.state} id="state" onChange={this.inputChangeHandler} placeholder="State" />
                     </div>
                     <div class="">
                         <label> Country </label>
-                        <input type="text" class="form-control" name="country" value={this.state.country} id="country" onChange={this.inputChangeHandler} placeholder="Country" />
+                        <input type="text"  style={{width:300}} class="form-control" name="country" value={this.state.country} id="country" onChange={this.inputChangeHandler} placeholder="Country" />
                     </div>
                     <br />
                     <div class="row">

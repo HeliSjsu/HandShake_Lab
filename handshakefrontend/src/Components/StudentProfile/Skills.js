@@ -115,7 +115,7 @@ class Skills extends Component {
                     <button type="button" name="delete" onClick={this.onClickHandler}>Cancel</button>
                     <form onSubmit={this.setSkills}>
                         <div class="form-group">
-                            <Dropdown name="skills" id="skills" placeholder="Select your SkillSet" fluid search selection multiple options={this.state.skillset} onChange={this.handleOnChange} defaultValue={this.state.allSkills} />
+                            <Dropdown  style={{width:300}} name="skills" id="skills" placeholder="Select your SkillSet" fluid search selection multiple options={this.state.skillset} onChange={this.handleOnChange} defaultValue={this.state.allSkills} />
                         </div>
                         <div>
                             <input type="submit" class="btn btn-info" value="Save" />

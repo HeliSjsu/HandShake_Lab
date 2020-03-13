@@ -156,20 +156,20 @@ class EducationDetails extends Component {
             <div class="col-sm- 8">
                  
                  <label class="control-label"> School Name </label>
-                 <input type="text" class="form-control"  name="collegeName" id="collegeName" onChange = {this.inputChangeHandler} placeholder="College Name"  required/>
+                 <input type="text" class="form-control"  style={{width:550}}  name="collegeName" id="collegeName" onChange = {this.inputChangeHandler} placeholder="College Name"  required/>
              </div>
              </div>
              <div class="row">
               
               <div class="col-sm-8">
                  <label> Education Level </label>
-                 <input type="text" class="form-control" name="degree" id="degree" onChange = {this.inputChangeHandler} placeholder=" Degree"  required/>
+                 <input type="text" class="form-control" style={{width:550}} name="degree" id="degree" onChange = {this.inputChangeHandler} placeholder=" Degree"  required/>
              </div>
              </div>
              <div class="row">    
              <div class="col-sm-8 form-group">
                  <label> Major</label>
-                 <input type="text" class="form-control" name="major"  onChange = {this.inputChangeHandler} id="major" placeholder=" Major"  />
+                 <input type="text" class="form-control" style={{width:550}} name="major"  onChange = {this.inputChangeHandler} id="major" placeholder=" Major"  />
              </div>
              </div>
              <div class="row form-group">      
@@ -177,12 +177,12 @@ class EducationDetails extends Component {
             <div class="col-sm-4">
                 
                <label>  Passing Year</label>
-               <input type="text" class="form-control"  name="yearOfPassing" id="yearOfPassing" onChange = {this.inputChangeHandler} placeholder="Year Of Passing"  />
+               <input type="text" class="form-control" style={{width:200}}  name="yearOfPassing" id="yearOfPassing" onChange = {this.inputChangeHandler} placeholder="Year Of Passing"  />
            </div>
            
             <div class="col-sm-4">
                <label> Cumulative GPA </label>
-               <input type="text" class="form-control" name="cgpa"  id="cgpa" onChange = {this.inputChangeHandler} placeholder="CGPA"  />
+               <input type="text" class="form-control" name="cgpa" style={{width:200}} id="cgpa" onChange = {this.inputChangeHandler} placeholder="CGPA"  />
            </div>
            </div> 
            <div> 

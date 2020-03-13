@@ -147,15 +147,16 @@ class ContactDetails extends Component {
              <div class="col-md-3">
                  
                 <label> Email Id </label>
-                <input type="email" class="form-control"  name="emailId" value={this.state.emailId} id="emailId" onChange = {this.inputChangeHandler} placeholder="Enter Email"  required/>
+                <input  style={{width:300}} type="email" class="form-control"  name="emailId" value={this.state.emailId} id="emailId" onChange = {this.inputChangeHandler} placeholder="Enter Email"  required/>
             </div>
             </div>
             <div class="row">
              <div class="col-md-3">
                 <label> Phone Name </label>
-                <input type="text" class="form-control" name="phoneNum" value={this.state.phoneNum} id="phoneNum" onChange = {this.inputChangeHandler} placeholder="Phone number"  required/>
+                <input  style={{width:300}} type="text" class="form-control" name="phoneNum" value={this.state.phoneNum} id="phoneNum" onChange = {this.inputChangeHandler} placeholder="Phone number"  required/>
             </div>
             </div>
+            <br/>
           <div class="row">
             <input type="submit" class="btn btn-info" value="Save" />
           </div>
