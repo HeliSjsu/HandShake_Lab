@@ -132,10 +132,10 @@ class JobMoreDetail extends Component {
         return (
             <div class="container" >
                 {redirectVar}
-                <div >
-                    <img src={this.state.profile} alt="Company profile" style={{ height: 100, width: 100 }}></img>
-                </div>
-                <div class="h2">
+                {/* <div >
+                    <img src={!!(props.moredetail.c_profile) ? backendconfig + '/uploads/' + props.moredetail.c_profile.trim() : backendconfig + '/uploads/noprofile.jpg'} alt="Company profile" style={{ height: 100, width: 100 }}></img>
+                </div>*/}
+                <div class="h2"> 
                     <span>{this.state.title}</span>
                 </div>
                 <div class="h5">
