@@ -96,8 +96,8 @@ class JobPosting extends Component {
                     <label htmlFor="full_time">Full Time</label><br/>
                     <input type="radio" name="job_type" id="part_time"  value="Part Time" onChange={this.inputChangeHandler} />
                     <label htmlFor="part_time">Part Time</label><br/>
-                    <input type="radio" name="job_type" id="intern"  value="Intern" onChange={this.inputChangeHandler} />
-                    <label htmlFor="intern"> Intern</label><br/>
+                    <input type="radio" name="job_type" id="intern"  value="Internship" onChange={this.inputChangeHandler} />
+                    <label htmlFor="Internship"> Internship</label><br/>
                     <input type="radio" name="job_type" id="on_campus"  value="On Campus" onChange={this.inputChangeHandler} />
                     <label htmlFor="on_campus"> On Campus</label>
                 </div>
