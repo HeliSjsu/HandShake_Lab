@@ -146,7 +146,7 @@ class BasicDetails extends Component {
                     state: !!(data.state) ? data.state : '',
                     country: !!(data.country) ? data.country : '',
                     phoneNum: !!(data.phone_num) ? data.phone_num : '',
-                    profile: (data.profile == null) ? backendconfig + '/uploads/' + data.profile.trim() : backendconfig + '/uploads/noprofile.jpg'
+                    profile: (data.profile !== null) ? backendconfig + '/uploads/' + data.profile.trim() : backendconfig + '/uploads/noprofile.jpg'
                 });
             });
     }
